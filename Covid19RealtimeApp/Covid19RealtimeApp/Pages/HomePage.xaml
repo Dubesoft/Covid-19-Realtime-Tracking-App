@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Covid19RealtimeApp.Pages.HomePage"
+            xmlns:androidSpecific="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+            xmlns:pages="clr-namespace:Covid19RealtimeApp.Pages"
+            androidSpecific:TabbedPage.ToolbarPlacement="Bottom"
+            BarBackgroundColor="#001233" 
+            SelectedTabColor="White"
+            UnselectedTabColor="White"
+            NavigationPage.HasNavigationBar="False">
+
+    
+    <pages:ExplorePage Title="Home" IconImageSource="home.png"/>
+    <pages:CountriesPage Title="Countries" IconImageSource="map.png"/>
+</TabbedPage>

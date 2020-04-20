@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:transformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             mc:Ignorable="d"
+             x:Class="Covid19RealtimeApp.Pages.ExplorePage"
+             BackgroundColor="#001233">
+    <ContentPage.Content>
+        <StackLayout>
+            <forms:CachedImage Grid.Row="0"
+                               Grid.Column="0"
+                               Grid.RowSpan="4"
+                               HeightRequest="150"
+                               WidthRequest="150"
+                               Aspect="AspectFit"
+                               LoadingPlaceholder="placeholder.png" 
+                               Source="https://png.pngtree.com/png-vector/20200131/ourmid/pngtree-coronavirus-infection-medical-illustration-cancer-hiv-aids-bacterial-intruder-cells-disease-png-image_2138541.jpg">
+                <forms:CachedImage.Transformations>
+                    <transformations:CircleTransformation />
+                </forms:CachedImage.Transformations>
+            </forms:CachedImage>
+            <Label Text="Corona Virus"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" 
+                   TextColor="White"
+                   FontSize="Large"/>
+            <Label Text="COVID-19"
+                   FontSize="Title"
+                VerticalOptions="CenterAndExpand"
+                   TextColor="White"
+                HorizontalOptions="CenterAndExpand" />
+            <forms:CachedImage Grid.Row="0"
+                               Grid.Column="0"
+                               Grid.RowSpan="4"
+                               HeightRequest="150"
+                               WidthRequest="150"
+                               Aspect="AspectFit"
+                               LoadingPlaceholder="placeholder.png" 
+                               Source="https://www.pikpng.com/pngl/m/275-2751074_world-vector-icon-logo-internet-vector-clipart.png">
+                <forms:CachedImage.Transformations>
+                    <transformations:CircleTransformation />
+                </forms:CachedImage.Transformations>
+            </forms:CachedImage>
+            <Label Text="STAY HOME  STAY SAFE"
+                   FontSize="Medium"
+                VerticalOptions="CenterAndExpand"
+                   TextColor="White"
+                HorizontalOptions="CenterAndExpand" />
+            <Label Text="DEVELOPED AND POWERED BY "
+                   FontSize="Caption"
+                VerticalOptions="CenterAndExpand"
+                   TextColor="White"
+                HorizontalOptions="CenterAndExpand" />
+            <Label Text="DUBESOFT AND PARTNERS CORP. "
+                   FontSize="Large"
+                VerticalOptions="CenterAndExpand"
+                   TextColor="White"
+                HorizontalOptions="CenterAndExpand" />
+            <Label x:Name="LblCopyRight"
+                   FontSize="Medium"
+                VerticalOptions="CenterAndExpand"
+                   TextColor="White"
+                HorizontalOptions="CenterAndExpand" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
