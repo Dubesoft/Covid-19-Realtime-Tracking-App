@@ -16,13 +16,18 @@ namespace Covid19RealtimeApp.Pages
     public partial class CountriesPage : ContentPage
     {
 
-        int totalCases = 0, totalDeath = 0, totalRecovered = 0;
         public ObservableCollection<Countries> CountriesCollection;
 
         private void LvCountries_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             var selectedItem = e.SelectedItem as Countries;
             Navigation.PushModalAsync(new countryPage(selectedItem.country));
+        }
+
+
+        private async void SearchBarCountry_SearchButtonPressed(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new countryPage(SearchBarCountry.Text));
         }
 
         public CountriesPage()

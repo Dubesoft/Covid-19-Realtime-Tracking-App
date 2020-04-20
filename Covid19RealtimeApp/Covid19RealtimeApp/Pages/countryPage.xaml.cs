@@ -27,18 +27,13 @@ namespace Covid19RealtimeApp.Pages
 
         private async void GetCountryDetail(string country)
         {
-            var countries = await ApiService.GetAll();
+            
             var countryInfo = await ApiService.GetCountry(country);
-
+            var countries = await ApiService.GetAll();
             LblTotalCases.Text = countries.cases.ToString();
             LblTotalDeath.Text = countries.deaths.ToString();
             LblTotalRecovered.Text = countries.recovered.ToString();
 
-            var countriesList = await ApiService.GetCountries();
-            foreach (var countryList in countriesList)
-            {
-                CountriesCollection.Add(countryList);
-            }
            
             LblCountry.Text = countryInfo.country.ToString();
             ImgCountry.Source = countryInfo.FullImageUrl;
