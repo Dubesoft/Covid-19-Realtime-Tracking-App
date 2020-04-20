@@ -43,7 +43,6 @@ namespace Covid19RealtimeApp.Pages
             LblActive.Text = countryInfo.active.ToString();
             LblTodayCases.Text = countryInfo.todayCases.ToString();
             LblCriticalCases.Text = countryInfo.critical.ToString();
-            //LblTodayDeaths.Text = countryInfo.todayDeaths.ToString();
 
             DateTime date = DateTime.Now;
             LblTodayDate.Text = string.Format("{0:D}", date);
