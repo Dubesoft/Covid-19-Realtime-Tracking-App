@@ -14,11 +14,11 @@
         <StackLayout>
             <Grid BackgroundColor="#001233">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="50" />
-                    <RowDefinition Height="50" />
-                    <RowDefinition Height="50" />
-                    <RowDefinition Height="50" />
-                    <RowDefinition Height="50" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*" />
@@ -129,10 +129,10 @@
                                                    Aspect="AspectFit"
                                                    LoadingPlaceholder="placeholder.png" 
                                                    Source="{Binding FullImageUrl}">
-                                                    <forms:CachedImage.Transformations>
-                                                    <transformations:CircleTransformation />
-                                                    </forms:CachedImage.Transformations>
-                                                    </forms:CachedImage>
+                                    <forms:CachedImage.Transformations>
+                                        <transformations:CircleTransformation />
+                                    </forms:CachedImage.Transformations>
+                                </forms:CachedImage>
 
                                 <StackLayout Orientation="Horizontal"
                                              HorizontalOptions="EndAndExpand"
@@ -191,13 +191,9 @@
                                        Text="{Binding recovered}"
                                        HorizontalOptions="CenterAndExpand"/>
                             </Grid>
-                            
-                            
                             <ViewCell.ContextActions>
-                               
+
                             </ViewCell.ContextActions>
-                            
-                           
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
