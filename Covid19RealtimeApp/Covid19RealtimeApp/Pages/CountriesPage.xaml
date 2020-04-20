@@ -97,7 +97,7 @@
                        Grid.ColumnSpan="1"/>
             </Grid>
             <SearchBar x:Name="SearchBarCountry"
-                       Placeholder="Search Vehicle"
+                       Placeholder="Search Country"
                        SearchButtonPressed="SearchBarCountry_SearchButtonPressed"/>
             <ListView x:Name="LvCountries"
                       HasUnevenRows="True"
