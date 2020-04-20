@@ -33,18 +33,17 @@ namespace Covid19RealtimeApp.Pages
         }
         private async void GetCountries()
         {
+            var totalCountry = await ApiService.GetAll();
+
             var countries = await ApiService.GetCountries();
             foreach (var country in countries)
             {
-                totalCases += country.cases;
-                totalDeath += country.deaths;
-                totalRecovered += country.recovered;
                 CountriesCollection.Add(country);
             }
             LvCountries.ItemsSource = CountriesCollection;
-            LblTotalCases.Text = totalCases.ToString();
-            LblTotalDeath.Text = totalDeath.ToString();
-            LblTotalRecovered.Text = totalRecovered.ToString();
+            LblTotalCases.Text = totalCountry.cases.ToString();
+            LblTotalDeath.Text = totalCountry.deaths.ToString();
+            LblTotalRecovered.Text = totalCountry.recovered.ToString();
 
             DateTime date = DateTime.Now;
             LblTodayDate.Text = string.Format("{0:D}", date);
