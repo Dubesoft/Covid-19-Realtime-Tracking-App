@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:transformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             ios:Page.UseSafeArea="True"
+             x:Class="Covid19RealtimeApp.Pages.NigeriaPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid BackgroundColor="#001233">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="7*" />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+                <forms:CachedImage HorizontalOptions="CenterAndExpand"
+                                           HeightRequest="80"
+                                           WidthRequest="80"
+                                           Grid.Row="0"
+                                           Grid.Column="0"
+                                           Grid.ColumnSpan="4"
+                                           LoadingPlaceholder="userPlaceholder.png"
+                                           x:Name="Banner"
+                                   Source="https://png.pngtree.com/png-vector/20200131/ourmid/pngtree-coronavirus-infection-medical-illustration-cancer-hiv-aids-bacterial-intruder-cells-disease-png-image_2138541.jpg">
+                    <forms:CachedImage.Transformations>
+                        <transformations:CircleTransformation />
+                    </forms:CachedImage.Transformations>
+                </forms:CachedImage>
+
+                <Label x:Name="LblTodayDate"
+                       TextColor="White" 
+                       FontSize="Small"
+                       HorizontalOptions="End"
+                       Grid.Row="0"
+                       Grid.Column="1"
+                       Grid.ColumnSpan="2"/>
+
+                <StackLayout Orientation="Horizontal"
+                                             HorizontalOptions="CenterAndExpand"
+                                             Grid.Row="1"
+                                             Grid.Column="1"
+                                             Grid.ColumnSpan="2">
+                    <Label TextColor="#8600b3" 
+                               Text="Total Cases"
+                               FontSize="Large"
+                               HorizontalOptions="CenterAndExpand"/>
+                </StackLayout>
+                <Label x:Name="LblTotalCases"
+                       TextColor="White" 
+                       HorizontalOptions="CenterAndExpand"
+                       Grid.Row="2"
+                       Grid.Column="1"
+                       Grid.ColumnSpan="2"/>
+
+                <Label x:Name="TotalDeath"
+                       Text="Total Death"
+                       TextColor="#ff3333" 
+                       FontSize="Large"
+                       HorizontalOptions="CenterAndExpand"
+                       Grid.Row="3"
+                       Grid.Column="0"
+                       Grid.ColumnSpan="2"/>
+
+                <Label x:Name="TotalRecovered"
+                       Text="Total Recovered"
+                       TextColor="#47d147"
+                       FontSize="Large"
+                       HorizontalOptions="EndAndExpand"
+                       Grid.Row="3"
+                       Grid.Column="1"
+                       Grid.ColumnSpan="2"/>
+
+                <Label x:Name="LblTotalDeath"
+                       TextColor="White" 
+                       HorizontalOptions="CenterAndExpand"
+                       Grid.Row="4"
+                       Grid.Column="0"
+                       Grid.ColumnSpan="2"/>
+
+                <Label x:Name="LblTotalRecovered"
+                       TextColor="White"
+                       HorizontalOptions="Start"
+                       Grid.Row="4"
+                       Grid.Column="2"
+                       Grid.ColumnSpan="1"/>
+            </Grid>
+            <SearchBar x:Name="SearchBarStates"
+                       Placeholder="Search States"
+                       SearchButtonPressed="SearchBarStates_SearchButtonPressed"/>
+            <ListView x:Name="LvNigerianStates"
+                      HasUnevenRows="True"
+                      SeparatorColor="#707070"
+                      Footer=""
+                      CachingStrategy="RecycleElement"
+                      ItemTapped="LvNigerianStates_ItemTapped">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="15"
+                                  Margin="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="3*" />
+                                    <ColumnDefinition Width="5*" />
+                                    <ColumnDefinition Width="5*" />
+                                    <ColumnDefinition Width="5*" />
+                                </Grid.ColumnDefinitions>
+                                <forms:CachedImage x:Name="ImgCountry"
+                                                   Grid.Row="0"
+                                                   Grid.Column="0"
+                                                   Grid.RowSpan="4"
+                                                   HeightRequest="100"
+                                                   Aspect="AspectFit"
+                                                   LoadingPlaceholder="placeholder.png" 
+                                                   Source="https://raw.githubusercontent.com/NovelCOVID/API/master/assets/flags/ng.png">
+                                    <forms:CachedImage.Transformations>
+                                        <transformations:CircleTransformation />
+                                    </forms:CachedImage.Transformations>
+                                </forms:CachedImage>
+
+                                <StackLayout Orientation="Horizontal"
+                                             HorizontalOptions="EndAndExpand"
+                                             Grid.Row="0"
+                                             Grid.Column="1"
+                                             Grid.ColumnSpan="2">
+                                    <Frame BackgroundColor="#001970"
+                                           Padding="10,0,10,0">
+                                        <Label TextColor="White" 
+                                               Text="{Binding states}"
+                                               HorizontalOptions="Center"
+                                               FontSize="Title"/>
+                                    </Frame>
+                                </StackLayout>
+
+                                <StackLayout Grid.Row="1"
+                                             Grid.Column="1"
+                                             Orientation="Horizontal"
+                                             >
+                                    <Label TextColor="#005ce6" 
+                                           Text="Total cases"
+                                           HorizontalOptions="CenterAndExpand"/>
+                                </StackLayout>
+
+                                <StackLayout Grid.Row="1"
+                                             Grid.Column="2"
+                                             Orientation="Horizontal"
+                                             >
+                                    <Label TextColor="#ff0000"
+                                           Text="Death"
+                                       HorizontalOptions="CenterAndExpand"/>
+                                </StackLayout>
+
+                                <StackLayout Grid.Row="1"
+                                             Grid.Column="3"
+                                             Orientation="Horizontal"
+                                             HorizontalOptions="CenterAndExpand">
+                                    <Label TextColor="#00e600"
+                                           Text="Recovered"
+                                       HorizontalOptions="CenterAndExpand"/>
+                                </StackLayout>
+
+                                <Label x:Name="cases"
+                                       Text="{Binding cases}"
+                                       TextColor="Black"
+                                       Grid.Row="2"
+                                       Grid.Column="1"
+                                       HorizontalOptions="CenterAndExpand"/>
+                                <Label x:Name="death"
+                                       Text="{Binding death}"
+                                       TextColor="Black"
+                                       Grid.Row="2"
+                                       Grid.Column="2"
+                                       HorizontalOptions="CenterAndExpand"/>
+                                <Label x:Name="recovered"
+                                       Text="{Binding recovered}"
+                                       TextColor="Black"
+                                       Grid.Row="2"
+                                       Grid.Column="3"
+                                       HorizontalOptions="CenterAndExpand"/>
+                            </Grid>
+                            <ViewCell.ContextActions>
+
+                            </ViewCell.ContextActions>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

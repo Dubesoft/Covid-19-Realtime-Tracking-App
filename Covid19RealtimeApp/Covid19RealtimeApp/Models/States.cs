@@ -12,5 +12,6 @@ namespace Covid19RealtimeApp.Models
         public int deaths { get; set; }
         public int todayDeaths { get; set; }
         public int active { get; set; }
+        
     }
 }

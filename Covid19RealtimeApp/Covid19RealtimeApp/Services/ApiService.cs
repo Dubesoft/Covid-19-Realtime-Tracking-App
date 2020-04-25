@@ -1,7 +1,9 @@
 ﻿using Covid19RealtimeApp.Models;
+using HtmlAgilityPack;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -50,6 +52,25 @@ namespace Covid19RealtimeApp.Services
             var httpClient = new HttpClient();
             var response = await httpClient.GetStringAsync("https://corona.lmao.ninja/v2/historical");
             return JsonConvert.DeserializeObject<HistoricalData>(response);
+        }
+
+        public async static Task<List<HtmlNode>> GetStateHtmlAsync()
+        {
+            string[] values = new string[40];
+
+            var url = "https://covid19.ncdc.gov.ng/";
+
+            var httpclient = new HttpClient();
+            var html = await httpclient.GetStringAsync(url);
+
+            var htmlDocument = new HtmlDocument();
+            htmlDocument.LoadHtml(html);
+
+            var TableHtml = htmlDocument.DocumentNode.Descendants("table")
+                .Where(node => node.GetAttributeValue("id", "")
+                .Equals("custom3")).ToList();
+
+            return TableHtml;
         }
     }
 }

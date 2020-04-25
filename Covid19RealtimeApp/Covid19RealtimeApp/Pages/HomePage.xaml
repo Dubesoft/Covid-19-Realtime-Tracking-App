@@ -15,5 +15,6 @@
 
     
     <pages:ExplorePage Title="Home" IconImageSource="home.png"/>
-    <pages:CountriesPage Title="Countries" IconImageSource="map.png"/>
+    <pages:CountriesPage Title="Countries" IconImageSource="ic_world.png"/>
+    <pages:NigeriaPage Title="Nigeria" IconImageSource="map.png"/>
 </TabbedPage>

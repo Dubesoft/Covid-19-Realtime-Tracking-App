@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:transformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             mc:Ignorable="d"
+             x:Class="Covid19RealtimeApp.Pages.NigeriaStatesPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid BackgroundColor="#001233">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="7*" />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+                <forms:CachedImage HorizontalOptions="CenterAndExpand"
+                                           HeightRequest="80"
+                                           WidthRequest="80"
+                                           Grid.Row="0"
+                                           Grid.Column="0"
+                                           Grid.ColumnSpan="4"
+                                           LoadingPlaceholder="userPlaceholder.png"
+                                           x:Name="Banner"
+                                   Source="https://png.pngtree.com/png-vector/20200131/ourmid/pngtree-coronavirus-infection-medical-illustration-cancer-hiv-aids-bacterial-intruder-cells-disease-png-image_2138541.jpg">
+                    <forms:CachedImage.Transformations>
+                        <transformations:CircleTransformation />
+                    </forms:CachedImage.Transformations>
+                </forms:CachedImage>
+                <Label x:Name="LblTodayDate"
+                       TextColor="White" 
+                       FontSize="Small"
+                       HorizontalOptions="End"
+                       Grid.Row="0"
+                       Grid.Column="1"
+                       Grid.ColumnSpan="2"/>
+                <StackLayout Orientation="Horizontal"
+                                             HorizontalOptions="CenterAndExpand"
+                                             Grid.Row="1"
+                                             Grid.Column="1"
+                                             Grid.ColumnSpan="2">
+                    <Label TextColor="#8600b3" 
+                               Text="Total Cases"
+                               FontSize="Large"
+                               HorizontalOptions="CenterAndExpand"/>
+                </StackLayout>
+                <Label x:Name="LblTotalCases"
+                       TextColor="White" 
+                       HorizontalOptions="CenterAndExpand"
+                       Grid.Row="2"
+                       Grid.Column="1"
+                       Grid.ColumnSpan="2"/>
+
+                <Label x:Name="TotalDeath"
+                       Text="Total Death"
+                       TextColor="#ff3333" 
+                       FontSize="Large"
+                       HorizontalOptions="CenterAndExpand"
+                       Grid.Row="3"
+                       Grid.Column="0"
+                       Grid.ColumnSpan="2"/>
+
+                <Label x:Name="TotalRecovered"
+                       Text="Total Recovered"
+                       TextColor="#47d147"
+                       FontSize="Large"
+                       HorizontalOptions="EndAndExpand"
+                       Grid.Row="3"
+                       Grid.Column="1"
+                       Grid.ColumnSpan="2"/>
+
+                <Label x:Name="LblTotalDeath"
+                       TextColor="White" 
+                       HorizontalOptions="CenterAndExpand"
+                       Grid.Row="4"
+                       Grid.Column="0"
+                       Grid.ColumnSpan="2"/>
+
+                <Label x:Name="LblTotalRecovered"
+                       TextColor="White"
+                       HorizontalOptions="Start"
+                       Grid.Row="4"
+                       Grid.Column="2"
+                       Grid.ColumnSpan="1"/>
+            </Grid>
+            <BoxView BackgroundColor="#707070"
+                             HeightRequest="1" />
+            <StackLayout Spacing="20"
+                                 Margin="20">
+                <Label Text="State Detail"
+                               FontSize="Large"
+                               TextColor="Black" />
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="4*" />
+                        <ColumnDefinition Width="6*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label x:Name="LblCountry"
+                                   TextColor="#303F9F"
+                                   Grid.Row="0"
+                                   Grid.Column="0"
+                           FontSize="Title"/>
+
+                    <forms:CachedImage x:Name="ImgCountry"
+                                                   Grid.Row="0"
+                                                   Grid.Column="1"
+                                                   Grid.RowSpan="1"
+                                       HorizontalOptions="StartAndExpand"
+                                                   HeightRequest="100"
+                                                   Aspect="AspectFit"
+                                                   LoadingPlaceholder="placeholder.png" 
+                                                   Source="https://raw.githubusercontent.com/NovelCOVID/API/master/assets/flags/ng.png">
+                        <forms:CachedImage.Transformations>
+                            <transformations:CircleTransformation />
+                        </forms:CachedImage.Transformations>
+                    </forms:CachedImage>
+
+
+
+                    <Label Text="Cases"
+                                   TextColor="#005ce6"
+                                   Grid.Row="1"
+                                   Grid.Column="0" 
+                           FontSize="Title"/>
+                    <Label x:Name="LblCases"
+                                   TextColor="Black"
+                                   Grid.Row="1"
+                                   Grid.Column="1" 
+                           FontSize="Subtitle"/>
+                    <Label Text="Death"
+                                   TextColor="#ff0000"
+                                   Grid.Row="2"
+                                   Grid.Column="0" 
+                           FontSize="Title"/>
+                    <Label x:Name="LblDeath"
+                                   TextColor="Black"
+                                   Grid.Row="2"
+                                   Grid.Column="1"
+                           FontSize="Subtitle"/>
+                    <Label Text="Recovered"
+                                   TextColor="#00e600"
+                                   Grid.Row="3"
+                                   Grid.Column="0"
+                           FontSize="Title"/>
+                    <Label x:Name="LblRecovered"
+                                   TextColor="Black"
+                                   Grid.Row="3"
+                                   Grid.Column="1"
+                           FontSize="Subtitle"/>
+                    <Label Text="Active"
+                                   TextColor="#ff6600"
+                                   Grid.Row="4"
+                                   Grid.Column="0"
+                           FontSize="Title"/>
+                    <Label x:Name="LblActive"
+                                   TextColor="Black"
+                                   Grid.Row="4"
+                                   Grid.Column="1"
+                           FontSize="Subtitle"/>
+                   
+                </Grid>
+            </StackLayout>
+            <Button Text="CALL"
+                                TextColor="White"
+                                BackgroundColor="#303F9F"
+                                Grid.Column="2"
+                                x:Name="BtnCall" Clicked="BtnCall_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
