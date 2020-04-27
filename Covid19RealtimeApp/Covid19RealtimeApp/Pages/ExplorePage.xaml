@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:ads="clr-namespace:Covid19RealtimeApp.Controls"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              xmlns:transformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
@@ -10,6 +11,7 @@
              BackgroundColor="#001233">
     <ContentPage.Content>
         <StackLayout>
+            
             <forms:CachedImage Grid.Row="0"
                                Grid.Column="0"
                                Grid.RowSpan="4"
@@ -17,7 +19,7 @@
                                WidthRequest="150"
                                Aspect="AspectFit"
                                LoadingPlaceholder="placeholder.png" 
-                               Source="https://png.pngtree.com/png-vector/20200131/ourmid/pngtree-coronavirus-infection-medical-illustration-cancer-hiv-aids-bacterial-intruder-cells-disease-png-image_2138541.jpg">
+                               Source="https://resources.bio-techne.com/images/sliders/assets/dw_frontpagead-coronavirus-360x306.png">
                 <forms:CachedImage.Transformations>
                     <transformations:CircleTransformation />
                 </forms:CachedImage.Transformations>
@@ -64,6 +66,9 @@
                 VerticalOptions="CenterAndExpand"
                    TextColor="White"
                 HorizontalOptions="CenterAndExpand" />
+            <StackLayout HorizontalOptions="EndAndExpand">
+                <ads:AdControlView BackgroundColor="Red" HorizontalOptions="EndAndExpand"></ads:AdControlView>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

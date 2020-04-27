@@ -30,7 +30,7 @@
                                            Grid.ColumnSpan="4"
                                            LoadingPlaceholder="userPlaceholder.png"
                                            x:Name="Banner"
-                                   Source="https://png.pngtree.com/png-vector/20200131/ourmid/pngtree-coronavirus-infection-medical-illustration-cancer-hiv-aids-bacterial-intruder-cells-disease-png-image_2138541.jpg">
+                                   Source="https://resources.bio-techne.com/images/sliders/assets/dw_frontpagead-coronavirus-360x306.png">
                     <forms:CachedImage.Transformations>
                         <transformations:CircleTransformation />
                     </forms:CachedImage.Transformations>

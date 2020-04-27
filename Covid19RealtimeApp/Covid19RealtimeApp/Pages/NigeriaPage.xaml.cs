@@ -16,14 +16,8 @@ namespace Covid19RealtimeApp.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class NigeriaPage : ContentPage
     {
-
-        string[,] Cellvalues = new string[30, 5];
-        string[] Cellvalues1 = new string[30];
-        string[] Cellvalues2 = new string[30];
-        string[] Cellvalues3 = new string[30];
-        string[] Cellvalues4 = new string[30];
-        string[] Cellvalues5 = new string[30];
-
+        string TotalValue = "";
+       
         public ObservableCollection<HtmlNode> NigerianStatesCollection;
         public NigeriaPage()
         {
@@ -32,6 +26,11 @@ namespace Covid19RealtimeApp.Pages
             GetNigerianStates();
         }
 
+        void OnTapGestureRecognizerTapped(object sender, EventArgs args)
+        {
+            var imageSender = (Image)sender;
+            GetNigerianStates();
+        }
         private async void GetNigerianStates()
         {
             var TableHtml = await ApiService.GetStateHtmlAsync();
@@ -39,10 +38,15 @@ namespace Covid19RealtimeApp.Pages
 
             var TableListRw = TableHtml[0].Descendants("tr").ToList();
 
-            var TableListRwValue = TableListRw[2].Descendants("td").ToList();
+            var TableListRwValue = TableListRw[1].Descendants("td").ToList();
 
-            
-           
+
+            string[,] Cellvalues = new string[TableListRw.Count, TableListRwValue.Count];
+            string[] Cellvalues1 = new string[TableListRw.Count];
+            string[] Cellvalues2 = new string[TableListRw.Count];
+            string[] Cellvalues3 = new string[TableListRw.Count];
+            string[] Cellvalues4 = new string[TableListRw.Count];
+            string[] Cellvalues5 = new string[TableListRw.Count];
 
 
             for (int i = 0; i < TableListRw.Count; i++)
@@ -75,9 +79,10 @@ namespace Covid19RealtimeApp.Pages
             {
                 nigeria.Add(new Nigeria { states = Cellvalues1[i], cases = Cellvalues2[i], death = Cellvalues5[i], recovered = Cellvalues4[i]});
             }
-            LblTotalCases.Text = Cellvalues2[29].ToString();
-            LblTotalDeath.Text = Cellvalues5[29].ToString();
-            LblTotalRecovered.Text = Cellvalues4[29].ToString();
+            TotalValue = Cellvalues3[TableListRw.Count - 1].ToString();
+            LblTotalCases.Text = Cellvalues2[TableListRw.Count -1].ToString();
+            LblTotalDeath.Text = Cellvalues5[TableListRw.Count - 1].ToString();
+            LblTotalRecovered.Text = Cellvalues4[TableListRw.Count - 1].ToString();
             //ImgCountry.Source = countryInfo.FullImageUrl;
             LvNigerianStates.ItemsSource = nigeria;
             //Console.WriteLine();
@@ -96,7 +101,7 @@ namespace Covid19RealtimeApp.Pages
         private async void LvNigerianStates_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             var item = e.Item as Nigeria;
-            await Navigation.PushModalAsync(new NigeriaStatesPage(item.states, item.cases, item.death, item.recovered, Cellvalues3[29].ToString()));
+            await Navigation.PushModalAsync(new NigeriaStatesPage(item.states, item.cases, item.death, item.recovered, TotalValue.ToString()));
         }
     }
 }

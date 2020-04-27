@@ -36,6 +36,12 @@ namespace Covid19RealtimeApp.Pages
             CountriesCollection = new ObservableCollection<Countries>();
             GetCountries();
         }
+
+        void OnTapGestureRecognizerTapped(object sender, EventArgs args)
+        {
+            var imageSender = (Image)sender;
+            GetCountries();
+        }
         private async void GetCountries()
         {
             var totalCountry = await ApiService.GetAll();

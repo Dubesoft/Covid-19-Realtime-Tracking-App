@@ -30,13 +30,12 @@ namespace Covid19RealtimeApp.Pages
 
             var TableListRwValue = TableListRw[2].Descendants("td").ToList();
 
-            string[,] Cellvalues = new string[30, 5];
-            string[] Cellvalues1 = new string[30];
-            string[] Cellvalues2 = new string[30];
-            string[] Cellvalues3 = new string[30];
-            string[] Cellvalues4 = new string[30];
-            string[] Cellvalues5 = new string[30];
-
+            string[,] Cellvalues = new string[TableListRw.Count, TableListRwValue.Count];
+            string[] Cellvalues1 = new string[TableListRw.Count];
+            string[] Cellvalues2 = new string[TableListRw.Count];
+            string[] Cellvalues3 = new string[TableListRw.Count];
+            string[] Cellvalues4 = new string[TableListRw.Count];
+            string[] Cellvalues5 = new string[TableListRw.Count];
 
 
             for (int i = 0; i < TableListRw.Count; i++)
@@ -63,10 +62,9 @@ namespace Covid19RealtimeApp.Pages
             DateTime date = DateTime.Now;
             LblTodayDate.Text = string.Format("{0:D}", date);
 
-            LblTotalCases.Text = Cellvalues2[29].ToString();
-            LblTotalDeath.Text = Cellvalues5[29].ToString();
-            LblTotalRecovered.Text = Cellvalues4[29].ToString();
-
+            LblTotalCases.Text = Cellvalues2[TableListRw.Count - 1].ToString();
+            LblTotalDeath.Text = Cellvalues5[TableListRw.Count - 1].ToString();
+            LblTotalRecovered.Text = Cellvalues4[TableListRw.Count - 1].ToString();
 
 
             LblCountry.Text = state;

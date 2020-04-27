@@ -6,6 +6,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Android.Gms.Ads;
 
 namespace Covid19RealtimeApp.Droid
 {
@@ -18,6 +19,7 @@ namespace Covid19RealtimeApp.Droid
             ToolbarResource = Resource.Layout.Toolbar;
 
             base.OnCreate(savedInstanceState);
+            MobileAds.Initialize(ApplicationContext, "ca-app-pub-6555451570939158~5456529288");
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init(enableFastRenderer: true);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
